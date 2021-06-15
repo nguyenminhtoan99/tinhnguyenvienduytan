@@ -1,4 +1,7 @@
 @extends('main.layouts.main')
+@section('title')
+    Tài Trợ
+@endsection
 @section('body')
 <section class="donate">
     <div class="bg-container">
@@ -10,11 +13,11 @@
                 <h1>Hãy góp phần để chung tay hỗ trợ cho cộng đồng để cộng đồng phát triển tốt đẹp hơn. </h1>
                 <div class="donation">
                     <div class="donors">
-                        <div class="number-donate">103</div>
+                        <div class="number-donate">{{$sponsormore}}</div>
                         <div class="name-donate">Nhà Tài Trợ</div>
                     </div>
                     <div class="total-donate">
-                        <div class="number-donate">20.000.000 VND</div>
+                        <div class="number-donate">{{number_format($fund)}} đ</div>
                         <div class="name-donate">Tổng Tài Trợ</div>
                     </div>
                 </div>
@@ -28,7 +31,7 @@
             </div>
         </div>
         <div class="header-manager" data-aos="fade-up" data-aos-duration="2000">
-            <h1>Danh Sách Các Nhà Tài Trợ</h1>
+            <h1>Danh Sách Các Nhà Tài Trợ Tháng {{$month}}</h1>
             <table>
             <tr class="header-table">
                 <th class="col">Tên Nhà Tài Trợ</th>
@@ -51,6 +54,26 @@
                 <td class="col">  {{number_format($item->amount_financed)}} đ</td>
                 <td class="col">{{$item->address}}</td>
             </tr>
+            @endforeach
+            </table>
+        </div>
+        {{-- chi tiết chi tiêu --}}
+        <div class="header-manager" data-aos="fade-up" data-aos-duration="2000">
+            <h1>Danh Sách Chi Tiết Chi Tiêu</h1>
+            <table>
+            <tr class="header-table">
+                <th class="col">Tên Nhà Tài Trợ</th>
+                <th class="col">Tên sự kiện</th>
+                <th class="col">Số tiền dùng</th>
+                <th class="col">Ngày dùng</th>
+            </tr>
+            @foreach ($detail_spending as $key=> $detail_spendings)
+                <tr>
+                    <td>{{$detail_spendings->name}}</td>
+                    <td>{{$detail_spendings->title}}</td>
+                    <td>{{number_format($detail_spendings->money)}} đ</td>
+                    <td>{{ date('d-m-Y', strtotime($detail_spendings->created_at)) }}</td>
+                </tr>
             @endforeach
             </table>
         </div>

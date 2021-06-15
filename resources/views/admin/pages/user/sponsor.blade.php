@@ -8,7 +8,7 @@
     <ol class="breadcrumb">
         <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Trang chủ</a
             ></li>
-        <li><a href="{{route('sponsor.list')}}"><i class="fa fa-dashboard"></i> Nhà tài trợ</a
+        <li><a href="{{route('sponsor.list')}}"> Nhà tài trợ</a
             ></li>
         <li class="active">Thêm</li>
       </ol>

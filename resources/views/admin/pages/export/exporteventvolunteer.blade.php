@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
-
+@section('title')
+    Danh sách sự kiện đăng ký
+@endsection
 @section('content_head')
 <section class="content-header" style="margin-bottom: 20px">
     <h1>
@@ -8,7 +10,7 @@
     <ol class="breadcrumb">
       <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Trang chủ</a
         ></li>
-      <li class="active"><a href=""><i class="fa fa-dashboard"></i> Sự kiện đăng ký</a
+      <li class="active"><a href=""> Sự kiện đăng ký</a
         ></li>
     </ol>
   </section>

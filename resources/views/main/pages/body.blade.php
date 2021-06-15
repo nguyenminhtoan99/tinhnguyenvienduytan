@@ -1,4 +1,7 @@
 @extends('main.layouts.main')
+@section('title')
+    Trang chủ
+@endsection
 @section('body')
 <style>
     .blog_news{
@@ -27,7 +30,7 @@
                   <div class="slider_text">
                      <h3 style="line-height: 1.3">{{$items->title}}</h3>
                      <p>{!!$items->summary!!}</p>
-                     <a href="{{route('client.getLogin')}}" class="custom_btn">Tham gia ngay</a>
+                     <a href="{{route('client.getRegister')}}" class="custom_btn">Tham gia ngay</a>
                   </div>
                </div>
             </div>
@@ -40,7 +43,7 @@
                   <div class="slider_text">
                      <h3 style="line-height: 1.3">{{$items->title}}</h3>
                      <p>{!!$items->summary!!}</p>
-                     <a href="{{route('client.getLogin')}}" class="custom_btn">Tham gia ngay</a>
+                     <a href="{{route('client.getRegister')}}" class="custom_btn">Tham gia ngay</a>
                   </div>
                </div>
             </div>
@@ -87,13 +90,10 @@
                <div class="single_item">
                   <div class="item_list">
                      <div class="welcome_icon">
-                        <i class="fa fa-wallet"></i>
+                        <i class="fa fa-list-alt"></i>
                      </div>
-                     <h4>Gây quỹ nhanh chóng</h4>
-                    <p>việc sử dụng lại các
-                        sản phẩm hay cho một mục đích
-                        khác, sử dụng một sản phẩm cho
-                        đến hết tuổi thọ sản phẩm để hạn chế lượng rác thải. </p>
+                     <h4>Tham gia sự kiện</h4>
+                    <p>Dễ dàng tham gia các sự kiện tình nguyện. </p>
                     </div>
                </div>
             </div>
@@ -336,69 +336,5 @@
    <!--End of container-->
 </section>
 <!-- end of blog-->
-<section class="contact" id="contact">
-    <div class="container">
-        <h2 class="title" data-aos="fade-down" data-aos-duration="2000">Liên Hệ Với Chúng Tôi</h2>
-        <div class="contact-content">
-            <div class="column left" data-aos="fade-up" data-aos-duration="2000">
-                <div class="text">Thông Tin Của Chúng Tôi</div>
-                <p>Dưới đây là mọi thông tin liên lạc của chúng tôi, xin hãy liên lạc với chúng tôi khi thật sự cần thiết. Xin chân thành Cảm ơn.</p>
-                <div class="icons">
-                    <div class="row">
-                        <i class="fas fa-user"></i>
-                        <div class="info">
-                            <div class="head">Tên</div>
-                            <div class="sub-title">Trường đại học Duy Tân</div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div class="info">
-                            <div class="head">Địa Chỉ</div>
-                            <div class="sub-title">Thanh Khê, Đà Nẵng</div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <i class="fas fa-envelope"></i>
-                        <div class="info">
-                            <div class="head">Email</div>
-                            <div class="sub-title"><a href="mailto:tinhnguyenduytan@gmail.com">tinhnguyenduytan@gmail.com</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column right" data-aos="fade-up" data-aos-duration="2000">
-                <div class="text">Gửi Lời Nhắn</div>
-                <form role="form" method="post" enctype="multipart/form-data" action="{{route('feedback.store')}}">
-                    @csrf
-                    <div class="fields">
-                        <div class="field name">
-                            <input type="text" name="name" placeholder="Họ và tên" required>
-                        </div>
-                        <div class="field email">
-                            <input type="email" name="email" placeholder="Email" required>
-                        </div>
-                    </div>
-                    <div class="fields">
-                        <div class="field name">
-                            <input type="text" name="address" placeholder="Địa chỉ" required>
-                        </div>
-                        <div class="field email">
-                            <input type="text" name="phone" placeholder="Số điện thoại" required>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <input type="text" name="topic" placeholder="Chủ đề" required>
-                    </div>
-                    <div class="field textarea">
-                        <textarea cols="30" rows="10" name="content" placeholder="Chi tiết ..." required></textarea>
-                    </div>
-                    <div class="button">
-                        <button class="submit">Gửi Tin Nhắn</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
+
 @endsection

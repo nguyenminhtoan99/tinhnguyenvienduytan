@@ -15,8 +15,9 @@
               <div class="form-group">
                   <label for="exampleInputEmail1">Lý do</label>
                   <select name="" id="" class="form-control">
-                      <option value="">tài khoản có hành vi phá hoại</option>
-                      <option value="">tài khoản không còn tồn tại</option>
+                      <option value="">Tài khoản có hành vi phá hoại</option>
+                      <option value="">Tài khoản có ý thức kỉ luật kém</option>
+                      <option value="">Tài khoản không còn tồn tại</option>
 
 
                   </select>

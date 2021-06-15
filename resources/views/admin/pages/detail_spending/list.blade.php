@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
-
+@section('title')
+    Chi tiết chi tiêu
+@endsection
 @section('content_head')
 <section class="content-header" style="margin-bottom: 20px">
     <h1>
@@ -8,6 +10,7 @@
     <ol class="breadcrumb">
       <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Trang chủ</a
         ></li>
+        <li class="active">Chi tiết chi tiêu</li>
     </ol>
   </section>
 @endsection
@@ -35,7 +38,7 @@
                     <td>{{$key+1}}</td>
                     <td>{{$detail_spendings->name}}</td>
                     <td>{{$detail_spendings->title}}</td>
-                    <td>{{$detail_spendings->money}}</td>
+                    <td>{{number_format($detail_spendings->money)}} đ</td>
                     <td>{{ date('d-m-Y', strtotime($detail_spendings->created_at)) }}</td>
                 </tr>
         @endforeach

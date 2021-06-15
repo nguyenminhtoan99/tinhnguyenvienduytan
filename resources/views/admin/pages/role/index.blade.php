@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
-
+@section('title')
+    Nhóm Quyền
+@endsection
 @section('content_head')
     <section class="content-header" style="margin-bottom: 20px">
         <h1>
@@ -32,12 +34,18 @@
                 <tr>
                     <td>{{$key + 1}}</td>
                     <td>{{$role -> name}}</td>
-                    <td>{{$role -> display_name}}</td>
                     <td>
-                        <a href="{{route('role.edit', $role->id)}}" class="btn btn-icon btn-sm btn btn-warning">
+                        @if ($role -> name == 'admin')
+                             <span class="label label-danger">Quản trị viên</span>
+                        @else
+                            <span class="label label-info">{{$role -> display_name}}</span>
+                        @endif
+                    </td>
+                    <td>
+                        <a title="Sửa" href="{{route('role.edit', $role->id)}}" class="btn btn-icon btn-sm btn btn-warning">
                             <i class="fas fa-edit"></i>
                         </a>
-                        <a onclick="return confirm('Bạn có chắc muốn xoá hay không?')"
+                        <a title="Xoá" onclick="return confirm('Bạn có chắc muốn xoá hay không?')"
                            href="{{route('role.delete', $role->id)}}" class="btn btn-icon btn-sm btn-danger">
                             <i class="fas fa-trash-alt"></i>
                         </a>

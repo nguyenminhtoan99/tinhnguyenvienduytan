@@ -1,4 +1,7 @@
 @extends('main.layouts.main')
+@section('title')
+    Giới Thiệu
+@endsection
 @section('body')
 
 <section>

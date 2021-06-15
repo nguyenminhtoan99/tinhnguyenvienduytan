@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
-
+@section('title')
+  Nhóm quyền
+@endsection
 @section('content_head')
     <section class="content-header">
         <h1>
@@ -39,16 +41,20 @@
                                 <span class="error-message text text-danger">{{ $errors->first('display_name') }}</span>
                             </div>
                             <label for="exampleInputEmail1">Chọn chức năng</label>
-                            @foreach ($permissions as $permission)
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="permission[]" value="{{$permission->id}}">
-                                            {{$permission->display_name}}
-                                        </label>
-                                    </div>
+                            <div class="form-group">
+                                @foreach ($permissions as $key => $permission)
+                                    @if ($key % 5 == 0)
+                                        <br>
+                                    @endif
+                                <div class="checkbox" style="display: inline-block; width: 250px">
+                                    <label style="display: block">
+                                        <input type="checkbox" name="permission[]" value="{{$permission->id}}">
+                                        {{$permission->display_name}}
+                                    </label>
                                 </div>
-                            @endforeach
+                                @endforeach
+                            </div>
+
                             <span class="error-message text text-danger">{{ $errors->first('permission') }}</span>
                         </div>
                         <div class="box-footer">

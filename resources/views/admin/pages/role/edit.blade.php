@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
-
+@section('title')
+   Sửa nhóm quyền
+@endsection
 @section('content_head')
     <section class="content-header">
         <h1>
@@ -7,7 +9,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
-            <li><a href="{{route('role.index')}}"> Quyền</a></li>
+            <li><a href="{{route('role.index')}}">Nhóm Quyền</a></li>
             <li class="active">Sửa</li>
         </ol>
     </section>
@@ -37,18 +39,24 @@
                                        value="{{$role->display_name}}">
                             </div>
                             <label for="exampleInputEmail1">Chọn chức năng</label>
-                            @foreach ($permissions as $permission)
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input
-                                                {{$allPermiss->contains($permission->id) ? 'checked' : ''}} type="checkbox"
-                                                name="permission[]" value="{{$permission->id}}">
-                                            {{$permission->display_name}}
-                                        </label>
-                                    </div>
+
+                            <div class="form-group">
+                                @foreach ($permissions as $key => $permission)
+                                    @if ($key % 5 == 0)
+                                        <br>
+                                    @endif
+                                <div class="checkbox" style="display: inline-block; width: 250px">
+                                    <label style="display: block">
+                                        <input type="checkbox"
+                                        {{$allPermiss->contains($permission->id) ? 'checked' : ''}}
+                                        name="permission[]"
+                                        value="{{$permission->id}}">
+                                        {{$permission->display_name}}
+                                    </label>
                                 </div>
-                            @endforeach
+                                @endforeach
+                            </div>
+
                         </div>
                         <div class="box-footer">
                             <button type="submit" class="btn btn-primary">Lưu</button>

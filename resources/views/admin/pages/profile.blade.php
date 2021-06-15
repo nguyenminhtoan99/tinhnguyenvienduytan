@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
-
+@section('title')
+   Thông tin cá nhân
+@endsection
 @section('content_head')
     <section class="content-header">
         <h1>

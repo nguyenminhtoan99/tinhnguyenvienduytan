@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
-
+@section('title')
+    Nhà tài trợ
+@endsection
 @section('content_head')
     <section class="content-header" style="margin-bottom: 20px">
         <h1>
@@ -7,7 +9,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{route('dashboard')}}">Trang chủ</a></li>
-            <li><a href="{{route('sponsor.list')}}">Nhà tài trợ</a></li>
+            <li class="active">Nhà tài trợ</li>
         </ol>
     </section>
 @endsection
@@ -92,34 +94,34 @@
                                 </td>
                                 <td>
                                     @if ($item->user_id!=null)
-                                        <a href="{{route('sponsor.showdonate',$item->id)}}"
-                                           class="btn btn-icon btn-sm btn btn-info">
+                                        <a title="Tài trợ tiền" href="{{route('sponsor.showdonate',$item->id)}}"
+                                           class="btn btn-icon btn-sm btn btn-warning">
                                             <i class="fas fa-donate"></i>
                                         </a>
-                                        <a href="{{route('sponsor.edit',$item->id)}}"
+                                        <a title="Sửa" href="{{route('sponsor.edit',$item->id)}}"
                                            class="btn btn-icon btn-sm btn btn-success">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a onclick="return confirm('Bạn có chắc muốn xoá hay không?')"
+                                        <a title="Xoá" onclick="return confirm('Bạn có chắc muốn xoá hay không?')"
                                            href="{{route('sponsor.delete',$item->id)}}"
                                            class="btn btn-icon btn-sm btn-danger">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
                                     @else
-                                        <a href="{{route('sponsor.showdonate',$item->id)}}"
-                                           class="btn btn-icon btn-sm btn btn-info">
+                                        <a title="Tài trợ tiền" href="{{route('sponsor.showdonate',$item->id)}}"
+                                           class="btn btn-icon btn-sm btn btn-warning">
                                             <i class="fas fa-donate"></i>
                                         </a>
-                                        <a onclick="return confirm('Tạo tài khoản?')"
+                                        <a title="Tạo tài khoản" onclick="return confirm('Tạo tài khoản?')"
                                            href="{{route('user.parse',$item->id)}}"
                                            class="btn btn-icon btn-sm btn btn-info">
                                             <i class="fas fa-user"></i>
                                         </a>
-                                        <a href="{{route('sponsor.edit',$item->id)}}"
+                                        <a title="Sửa" href="{{route('sponsor.edit',$item->id)}}"
                                            class="btn btn-icon btn-sm btn btn-success">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a onclick="return confirm('Bạn có chắc muốn xoá hay không?')"
+                                        <a title="Xoá" onclick="return confirm('Bạn có chắc muốn xoá hay không?')"
                                            href="{{route('sponsor.delete',$item->id)}}"
                                            class="btn btn-icon btn-sm btn-danger">
                                             <i class="fas fa-trash-alt"></i>
@@ -163,10 +165,10 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->email}}</td>
                                 <td>
-                                    <a onclick="return confirm('Tài trợ tiền')"
+                                    <a title="Tài trợ tiền" onclick="return confirm('Tài trợ tiền')"
                                        href="{{route('sponser.parse',$item->id)}}"
-                                       class="btn btn-icon btn-sm btn btn-success">
-                                        <i class="fas fa-home"></i>
+                                       class="btn btn-icon btn-sm btn btn-warning">
+                                       <i class="fas fa-donate"></i>
                                     </a>
                                 </td>
                             </tr>

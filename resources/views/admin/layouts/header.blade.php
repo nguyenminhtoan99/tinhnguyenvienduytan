@@ -2,9 +2,9 @@
     <!-- Logo -->
     <a href="index2.html" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>A</b>LT</span>
+        <span class="logo-mini">DTU</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Admin</b>VLT</span>
+        <span class="logo-lg">Tình Nguyện DTU</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -31,7 +31,10 @@
                     $notifications = auth()->user()->unreadNotifications;
                     // dd($notifications);
                     $user = Auth::user() ;
+
+
                 @endphp
+                @if ($user->id==8)
                 <li class="dropdown notifications-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="far fa-bell"></i>
@@ -58,9 +61,10 @@
                             </a></li>
                     </ul>
                 </li>
-                <!-- Tasks: style can be found in dropdown.less -->
+                @else
 
-                <!-- User Account: style can be found in dropdown.less -->
+                @endif
+
                 @php
                     $user = Auth::user() ;
                 @endphp
@@ -75,7 +79,7 @@
                             <img src="{{url('photo/user',$user->photo)}}" class="img-circle" alt="">
                             <p>
                                 {{$user->name}}
-                                <small>Member since Nov. 2012</small>
+                                <small>{{$user->created_at}}</small>
                             </p>
                         </li>
                         <!-- Menu Footer-->

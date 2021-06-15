@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
-
+@section('title')
+   Thống kê
+@endsection
 @section('content_head')
     <section class="content-header" style="margin-bottom: 20px">
         <h1>
@@ -7,7 +9,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
-            <li class="active">Dashboard</li>
+            <li class="active">Thống Kê</li>
         </ol>
     </section>
 @endsection
@@ -27,7 +29,7 @@
                     <div class="icon">
                         <i class="fa fa-fw fa-newspaper-o"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Thông tin <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{route('news.show')}}" class="small-box-footer">Thông tin <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -42,7 +44,7 @@
                     <div class="icon">
                         <i class="far fa-calendar-alt"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Thông tin <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{route('event.list')}}" class="small-box-footer">Thông tin <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -58,7 +60,7 @@
                     <div class="icon">
                         <i class="fa fa-fw fa-users"></i>
                     </div>
-                    <a href="{{route('user.index')}}" class="small-box-footer">Thông tin <i
+                    <a href="{{route('employee.list')}}" class="small-box-footer">Thông tin <i
                             class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
@@ -74,7 +76,7 @@
                     <div class="icon">
                         <i class="fa fa-fw fa-users"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Thông tin <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{route('volunteer.show')}}" class="small-box-footer">Thông tin <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->

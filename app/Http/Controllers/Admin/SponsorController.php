@@ -168,4 +168,13 @@ class SponsorController extends Controller
             ->get();
         return view('admin.pages.detail_spending.list', compact('detail_spending'));
     }
+
+    public function statistical()
+    {
+        $sum_amount_financed = Sponsor::query()->sum('amount_financed');
+        $sum_amount_spent = Sponsor::query()->sum('amount_spent');
+        $sum_remain = $sum_amount_financed - $sum_amount_spent;
+        return view('admin.pages. statistical.index', compact('sum_amount_financed','sum_amount_spent','sum_remain'));
+    }
+
 }

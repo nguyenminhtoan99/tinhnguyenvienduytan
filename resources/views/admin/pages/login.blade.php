@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Log in</title>
+    <title>Đăng nhập admin</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -31,7 +31,7 @@
 <body class="hold-transition login-page" style="background: ">
 <div class="login-box">
     <div class="login-logo">
-        <a href="../../index2.html"><b>Admin</b>Volunteer</a>
+        <a href="../../index2.html"><b>Admin</b>Tình Nguyện Duy Tân</a>
     </div>
     <div class="login-box-body" style="border-radius: 1rem">
         <p class="login-box-msg">Vui lòng đăng nhập để tiếp tục</p>

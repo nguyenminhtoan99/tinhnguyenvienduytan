@@ -7,7 +7,7 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
-        <li><a href="{{route('news.show')}}"><i class="fa"></i> Tin tức</a></li>
+        <li><a href="{{route('news.show')}}"> Tin tức</a></li>
         <li class="active">Thêm tin tức</li>
       </ol>
   </section>

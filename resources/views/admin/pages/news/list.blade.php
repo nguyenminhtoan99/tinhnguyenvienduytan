@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
-
+@section('title')
+    Tin tức
+@endsection
 @section('content_head')
 <section class="content-header" style="margin-bottom: 20px">
     <h1>
@@ -7,7 +9,7 @@
     </h1>
     <ol class="breadcrumb">
       <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
-      <li class="active"><a href="{{route('news.show')}}"><i class="fa fa-dashboard"></i> Tin tức</a></li>
+      <li class="active"> Tin tức</a></li>
     </ol>
   </section>
 @endsection
@@ -57,10 +59,10 @@
 
                 </td>
                 <td>
-                    <a href="{{route('news.edit',$item->id)}}" class="btn btn-icon btn-sm btn btn-success">
+                    <a title="Sửa" href="{{route('news.edit',$item->id)}}" class="btn btn-icon btn-sm btn btn-success">
                         <i class="fas fa-edit"></i>
                     </a>
-                    <a onclick="return confirm('Bạn có chắc muốn xoá hay không?')"
+                    <a title="Xoá" onclick="return confirm('Bạn có chắc muốn xoá hay không?')"
                         href="{{route('news.delete',$item->id)}}" class="btn btn-icon btn-sm btn-danger">
                         <i class="fas fa-trash-alt"></i>
                     </a>

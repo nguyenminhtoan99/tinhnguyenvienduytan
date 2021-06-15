@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
-
+@section('title')
+   Thông tin cá nhân
+@endsection
 @section('content_head')
     <section class="content-header">
         <h1>
@@ -101,7 +103,7 @@
                                                     <div class="btn-set">
                                                         <button class="btn btn-success" type="submit">
                                                             <i class="far fa-check-circle"></i>
-                                                            Update
+                                                            Cập nhật
                                                         </button>
                                                     </div>
                                                 </div>

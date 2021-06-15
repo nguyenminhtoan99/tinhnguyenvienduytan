@@ -1,5 +1,7 @@
 @extends('main.layouts.main')
-
+@section('title')
+    Sự Kiện
+@endsection
 @section('body')
 <section id="event">
    <div class="container">

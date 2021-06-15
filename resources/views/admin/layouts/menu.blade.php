@@ -9,7 +9,7 @@
             <li class="">
                 <a href="{{route('dashboard')}}">
                     <i class="fas fa-tachometer-alt"style="margin-right: 3px"></i>
-                    <span>Dashboard</span>
+                    <span>Thống kê</span>
                 </a>
             </li>
             <li>
@@ -104,11 +104,17 @@
                 </a>
             </li>
             <li >
+                <a href="{{ route('statistic.list')}}">
+                    <i class="fas fa-toolbox" style="margin-right: 3px"></i>
+                    <span>Thống kê tài chính</span>
+                </a>
+            </li>
+            {{-- <li >
                 <a href="{{ route('chat.show')}}">
                     <i class="fas fa-toolbox" style="margin-right: 3px"></i>
                     <span>Chat</span>
                 </a>
-            </li>
+            </li> --}}
             <li >
                 <a href="{{route('deatail.show')}}">
                     <i class="fas fa-money-check-alt" style="margin-right: 3px"></i>

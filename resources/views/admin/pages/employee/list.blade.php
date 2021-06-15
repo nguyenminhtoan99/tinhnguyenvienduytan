@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
-
+@section('title')
+    Nhân viên
+@endsection
 @section('content_head')
 <section class="content-header" style="margin-bottom: 20px">
     <h1>
@@ -44,7 +46,7 @@
                     <td>{{ $employees->user->email }}</td>
                     <td>{{ $employees->phone }}</td>
                     <td>
-                        <a onclick="return confirm('Bạn có chắc muốn xoá nhân viên hay không?')"
+                        <a title="Xoá nhân viên" onclick="return confirm('Bạn có chắc muốn xoá nhân viên hay không?')"
                             href="{{route('employee.delete',$employees->user->id )}}" class="btn btn-icon btn-sm btn-danger">
                             <i class="fas fa-trash-alt"></i>
                         </a>

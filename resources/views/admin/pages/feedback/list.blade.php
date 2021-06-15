@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
-
+@section('title')
+    Phản hồi
+@endsection
 @section('content_head')
 <section class="content-header" style="margin-bottom: 20px">
     <h1>
@@ -46,7 +48,7 @@
                     <p>{{date('d-m-Y H:i', strtotime($item->created_at)) }}</p></td>
                 </td>
                 <td>
-                    <a onclick="return confirm('Bạn có chắc muốn xoá hay không?')"
+                    <a title="Xoá" onclick="return confirm('Bạn có chắc muốn xoá hay không?')"
                         href="{{route('feedback.delete',$item->id)}}" class="btn btn-icon btn-sm btn-danger">
                         <i class="fas fa-trash-alt"></i>
                     </a>

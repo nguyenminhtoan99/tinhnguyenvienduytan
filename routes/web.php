@@ -31,7 +31,6 @@ Route::group(['namespace' => 'Client'], function () {
         Route::get('/ho-so/update', 'VolunteerController@showPassword')->name('client.getPassword');
         Route::post('/ho-so/update/password', 'VolunteerController@updatePassword')->name('client.updatePassword');
         Route::get('/quan-ly-su-kien', 'VolunteerController@eventManagement')->name('client.eventmanagement');
-
     });
 
     Route::get('/', 'HomeController@Home')->name('home');
@@ -127,11 +126,6 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function () {
                 'as' => 'user.update',
                 'uses' => 'UserController@update',
                 'middleware' => 'check-ACL:user-update'
-            ]);
-            Route::get('/delete/{id}', [
-                'as' => 'user.delete',
-                'uses' => 'UserController@delete',
-                'middleware' => 'check-ACL:user-delete'
             ]);
         });
 
@@ -292,7 +286,6 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function () {
                 'uses' => 'EventController@Agree',
                 'middleware' => 'check-ACL:event-updateagree'
             ]);
-
         });
 
         //TOOL
@@ -344,7 +337,6 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function () {
                 'uses' => 'VolunteerController@openactive',
                 'middleware' => 'check-ACL:volunteer-openactive'
             ]);
-
         });
 
         //VOLUNTEER
@@ -365,8 +357,6 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function () {
                 'uses' => 'VolunteerController@updatevolunteer',
 
             ]);
-            // Route::get('/volunteer/edit/{id}', 'VolunteerController@show_role')->name('volunteer.edit');
-            // Route::post('/volunteer/update', 'VolunteerController@updatevolunteer')->name('volunteer.update');
         });
 
         //EVENT-REGISTER
@@ -385,7 +375,6 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function () {
             Route::get('/', [
                 'as' => 'sponsor.list',
                 'uses' => 'sponsorController@index',
-                // 'middleware' => 'check-ACL:sponsor-list'
             ]);
             Route::get('/add', [
                 'as' => 'sponsor.show',
@@ -427,26 +416,28 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function () {
                 'middleware' => 'check-ACL:feedback-delete'
             ]);
         });
+
+        //NHÂN VIÊN
         Route::prefix('employee')->group(function () {
             Route::get('/', [
                 'as' => 'employee.list',
                 'uses' => 'EmployeeController@index',
-                // 'middleware' => 'check-ACL:user-list'
+                'middleware' => 'check-ACL:employee-list'
             ]);
             Route::get('/create', [
                 'as' => 'employee.create',
                 'uses' => 'EmployeeController@create',
-                'middleware' => 'check-ACL:user-add'
+                'middleware' => 'check-ACL:employee-add'
             ]);
             Route::post('/create', [
                 'as' => 'employee.store',
                 'uses' => 'EmployeeController@store',
-                'middleware' => 'check-ACL:user-add'
+                'middleware' => 'check-ACL:employee-add'
             ]);
             Route::get('/delete/{id}', [
                 'as' => 'employee.delete',
                 'uses' => 'EmployeeController@delete',
-                // 'middleware' => 'check-ACL:employee-delete'
+                'middleware' => 'check-ACL:employee-delete'
             ]);
         });
 
@@ -455,9 +446,7 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function () {
             Route::get('/', [
                 'as' => 'deatail.show',
                 'uses' => 'SponsorController@list',
-                // 'middleware' => 'check-ACL:deatail-list'
             ]);
-
         });
 
         //MAKE USER FROM SPONSERS
@@ -471,6 +460,7 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function () {
             'uses' => 'sponsorController@makeuser',
             'middleware' => 'check-ACL:makeuser'
         ]);
+
         //MAKE SPONSER FROM USER
         Route::get('/makesponsor/{id}', [
             'as' => 'sponser.parse',
@@ -482,6 +472,7 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function () {
             'uses' => 'sponsorController@makesponser',
             'middleware' => 'check-ACL:makesponsor'
         ]);
+
         //DONATE
         Route::get('/sponsor/donate/{id}', [
             'as' => 'sponsor.showdonate',
@@ -493,6 +484,7 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function () {
             'uses' => 'sponsorController@donate',
             'middleware' => 'check-ACL:makeuser'
         ]);
+
         //MANAGEMENT USER
         Route::prefix('comment')->group(function () {
             Route::get('/', [
@@ -506,9 +498,8 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function () {
                 'middleware' => 'check-ACL:comment-delete'
             ]);
         });
-//!--------------------------------------------------------------------------------------
+        //!--------------------------------------------------------------------------------------
         Route::get('/mark-read-all', 'AdminController@markAllNotification')->name('markAll.Notification');
         Route::get('/mark-read/{id}', 'AdminController@markNotification')->name('mark.Notification');
     });
-
 });

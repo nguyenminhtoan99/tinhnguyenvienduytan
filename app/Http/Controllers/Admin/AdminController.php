@@ -55,7 +55,7 @@ class AdminController extends Controller
         $upcomming_event = DB::table('event')
             ->orderBy('start_day', 'asc')
             ->where('start_day', '>', $now)
-            ->get();
+            ->take(5)->get();
         //LINE CHART
         $monthnow = DB::table('event')
             ->whereMonth('start_day', now()->month)

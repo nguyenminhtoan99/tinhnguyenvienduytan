@@ -7,7 +7,7 @@
     </h1>
     <ol class="breadcrumb">
       <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
-      <li class="active"><a href="{{route('tool.list')}}"><i class="fa fa-dashboard"></i> Dụng cụ</a></li>
+      <li><a href="{{route('tool.list')}}"></i> Dụng cụ</a></li>
       <li class="active">Sửa</li>
     </ol>
   </section>
@@ -20,7 +20,7 @@
             <div class="tabbable-custom" style="background-color: white; border: 1px solid #ddd; border-radius: 4px; padding: 15px;">
                 <input type="hidden" name="id" value="{{$tools->id}}">
                 <div class="form-group">
-                    <label for="title" >Name :</label>
+                    <label for="title" >Tên :</label>
                     <input class="form-control" id="title"  type="text" name="name" value="{{$tools->name}}">
                     <span class="form-message"></span>
                     @error('name')

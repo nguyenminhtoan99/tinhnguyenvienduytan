@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
-
+@section('title')
+   Tình nguyện viên
+@endsection
 @section('content_head')
 <section class="content-header" style="margin-bottom: 20px">
     <h1>
@@ -42,38 +44,40 @@
           </thead>
           <tbody>
             @foreach ($volunteers as $key => $volunteer)
-            <tr>
-                <td>{{ $key + 1 }}</td>
-                    <td><img src="{{url('photo/user',$volunteer->user->photo)}}" alt="photo" width="60" height="60"></td>
-                    <td>{{ $volunteer->user->name }}</td>
-                    <td>{{ $volunteer->user->email }}</td>
+            @if ($volunteer->user->status == "active")
+                <tr>
+                    <td>{{ $key + 1 }}</td>
+                        <td><img src="{{url('photo/user',$volunteer->user->photo)}}" alt="photo" width="60" height="60"></td>
+                        <td>{{ $volunteer->user->name }} </td>
+                        <td>{{ $volunteer->user->email }}</td>
+                        <td>
+                            @if ($volunteer->gender == 'male') {{ 'Nam' }} @elseif($volunteer->gender == 'female') {{ 'Nữ' }} @endif
+                        </td>
+                        <td>{{date('d-m-Y', strtotime($volunteer->birthday))}}</td>
+                        <td>{{ $volunteer->phone }}</td>
+                        <td>{{ $volunteer->address }}</td>
+
                     <td>
-                        @if ($volunteer->gender == 'male') {{ 'Nam' }} @elseif($volunteer->gender == 'female') {{ 'Nữ' }} @endif
+
+                        @if (!$volunteer->user->active_at)
+                        <a title= "Khoá tài khoản" href="#" class="btn btn-icon btn-sm btn-danger" data-toggle="modal" data-target="#exampleModalLong" onclick="setUserId({{ $volunteer ->user->id }})">
+                            <i class="fas fa-lock"></i>
+                        </a>
+                        @else
+                            <a onclick="return confirm('Bạn có chắc muốn mở khoá hay không?')"
+                            href="{{route('volunteer.openactive',$volunteer ->user->id )}}" class="btn btn-icon btn-sm btn-danger"  >
+                                <i class="fas fa-lock-open"></i>
+                            </a>
+                        @endif
+                        @if ($volunteer->isShow)
+                            <a title="Chỉ định thành nhân viên" onclick="return confirm('Bạn muốn chỉ định tình nguyện viên này thành nhân viên ?')"
+                            href="{{route('volunteer.edit',$volunteer->user->id )}}" class="btn btn-icon btn-sm btn-info"  >
+                            <i class="fas fa-user-check"></i>
+                            </a>
+                        @endif
                     </td>
-                    <td>{{date('d-m-Y', strtotime($volunteer->birthday))}}</td>
-                    <td>{{ $volunteer->phone }}</td>
-                    <td>{{ $volunteer->address }}</td>
-
-                <td>
-
-                    @if (!$volunteer->user->active_at)
-                    <a href="#" class="btn btn-icon btn-sm btn-danger" data-toggle="modal" data-target="#exampleModalLong" onclick="setUserId({{ $volunteer ->user->id }})">
-                        <i class="fas fa-lock"></i>
-                    </a>
-                    @else
-                        <a onclick="return confirm('Bạn có chắc muốn mở khoá hay không?')"
-                        href="{{route('volunteer.openactive',$volunteer ->user->id )}}" class="btn btn-icon btn-sm btn-danger"  >
-                            <i class="fas fa-lock-open"></i>
-                        </a>
-                    @endif
-                    @if ($volunteer->isShow)
-                        <a onclick="return confirm('Bạn muốn chỉ định tình nguyện viên này thành nhân viên ?')"
-                        href="{{route('volunteer.edit',$volunteer->user->id )}}" class="btn btn-icon btn-sm btn-danger"  >
-                        <i class="fas fa-user-check"></i>
-                        </a>
-                    @endif
-                </td>
-            </tr>
+                </tr>
+            @endif
             @endforeach
           </tbody>
 </table>

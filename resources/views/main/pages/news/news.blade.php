@@ -1,4 +1,7 @@
 @extends('main.layouts.main')
+@section('title')
+    Tin Tức
+@endsection
 @section('body')
 <section id="event" style="padding: 20px 0px">
     <div class="container">

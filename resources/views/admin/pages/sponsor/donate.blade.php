@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
-
+@section('title')
+   Tài trợ tiền
+@endsection
 @section('content_head')
     <section class="content-header" style="margin-bottom: 20px">
         <h1>

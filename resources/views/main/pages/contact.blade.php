@@ -1,4 +1,7 @@
 @extends('main.layouts.main')
+@section('title')
+    Liên Hệ
+@endsection
 @section('body')
 <section class="contact" id="contact">
     <div class="container">
@@ -26,7 +29,7 @@
                         <i class="fas fa-envelope"></i>
                         <div class="info">
                             <div class="head">Email</div>
-                            <div class="sub-title">tinhnguyenduytan@gmail.com</div>
+                            <div class="sub-title"><a href="mailto:tinhnguyenduytan@gmail.com">tinhnguyenduytan@gmail.com</a></div>
                         </div>
                     </div>
                 </div>

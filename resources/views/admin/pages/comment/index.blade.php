@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
-
+@section('title')
+    Bình Luận
+@endsection
 @section('content_head')
     <section class="content-header" style="margin-bottom: 20px">
         <h1>
@@ -33,7 +35,7 @@
                     <td>{{$comment-> title}}</td>
                     <td style="word-break: break-word;">{{$comment -> body}}</td>
                     <td>
-                        <a onclick="return confirm('Bạn có chắc muốn xoá hay không?')"
+                        <a title="Xoá" onclick="return confirm('Bạn có chắc muốn xoá hay không?')"
                            href="{{route('comment.delete', $comment->id)}}" class="btn btn-icon btn-sm btn-danger">
                             <i class="fas fa-trash-alt"></i>
                         </a>

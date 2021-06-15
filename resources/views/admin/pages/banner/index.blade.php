@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
-
+@section('title')
+    Banner
+@endsection
 @section('content_head')
     <section class="content-header" style="margin-bottom: 20px">
         <h1>
@@ -8,8 +10,7 @@
         <ol class="breadcrumb">
             <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Trang chủ</a
                 ></li>
-            <li class="active"><a href="{{route('banner.index')}}"><i class="fa fa-dashboard"></i> Banner</a
-                ></li>
+            <li class="active">Banner</li>
         </ol>
     </section>
 @endsection
